@@ -1,0 +1,27 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "comsci club vs. computer in a hangman game",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sspork/hangman.git"
+  },
+  "keywords": [
+    "hangman",
+    "game"
+  ],
+  "author": "Hannes",
+  "license": "MIT ",
+  "bugs": {
+    "url": "https://github.com/sspork/hangman/issues"
+  },
+  "homepage": "https://github.com/sspork/hangman#readme",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "inquirer": "^7.0.4"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^6.5.0"
+  }
+}
