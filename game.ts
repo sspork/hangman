@@ -1,6 +1,7 @@
 import * as Inquirer from "inquirer";
 import { words } from "./words";
-import * as chalk from "chalk"
+import * as chalk from "chalk";
+import * as figlet from "figlet";
 
 const word = words[Math.floor(Math.random() * words.length)]
 const parts = word.split("")
@@ -9,6 +10,7 @@ const maxFails = 3
 
 const guessedLetters = []
 async function main() {
+    console.log (chalk.magenta(figlet.textSync("Hangman!")))
     while (true) {
         const wordGuessed = printCurrentState()
         if (wordGuessed) {
