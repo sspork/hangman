@@ -15,7 +15,8 @@ async function main() {
             console.log(chalk.green ("yes, the word has been guessed"))
             break
         }
-        const letter = await askForLetter()
+        let letter = await askForLetter()
+        letter = letter.toLowerCase ()
         if (parts.includes(letter)) {
             console.log(chalk.blue("yes :)"))
             guessedLetters.push(letter)
