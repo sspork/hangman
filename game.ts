@@ -1,12 +1,41 @@
-import inquirer from "inquirer";
+import * as Inquirer from "inquirer";
 
-import {words} from "./words";
+import { words } from "./words";
 
-const word = words[Math.floor(Math.random ()*words.length)]
+const word = words[Math.floor(Math.random() * words.length)]
+const parts = word.split("")
 
-let stuff = "";
-
-for (let i = 0; i<word.length; i++) {
-    stuff += "_ "
+const guessedLetters = []
+async function main() {
+    while (true) {
+        printCurrentState()
+        const letter = await askForLetter()
+        if (parts.includes(letter)) {
+            console.log("yes :)")
+            guessedLetters.push(letter)
+        } else {
+            console.log("no :(")
+        }
+    }
 }
-console.log (stuff)
+function printCurrentState() {
+    let stuff = "";
+
+    for (let i = 0; i < word.length; i++) {
+        if (guessedLetters.includes(parts[i])) {
+            stuff += parts[i]
+        } else {
+            stuff += "_"
+
+        }
+        stuff += " "
+    }
+    console.log(stuff)
+}
+
+async function askForLetter() {
+    const answer = await Inquirer.prompt([{ message: "Guess a letter", type: "input", name: "letter" }])
+    return answer.letter
+
+}
+main()
