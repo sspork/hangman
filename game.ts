@@ -1,6 +1,6 @@
 import * as Inquirer from "inquirer";
-
 import { words } from "./words";
+import * as chalk from "chalk"
 
 const word = words[Math.floor(Math.random() * words.length)]
 const parts = word.split("")
@@ -12,22 +12,20 @@ async function main() {
     while (true) {
         const wordGuessed = printCurrentState()
         if (wordGuessed) {
-            console.log("yes, the word has been guessed")
+            console.log(chalk.green ("yes, the word has been guessed"))
             break
         }
         const letter = await askForLetter()
         if (parts.includes(letter)) {
-            console.log("yes :)")
+            console.log(chalk.blue("yes :)"))
             guessedLetters.push(letter)
         } else {
             failsCounter++
             if (failsCounter > maxFails) {
-                console.log("you lost.")
+                console.log(chalk.red("you lost."))
                 break
             }
-            console.log("no :( you have " + (maxFails - failsCounter) + " fails left")
-
-
+            console.log(chalk.red("no :( you have " + (maxFails - failsCounter) + " fails left"))
         }
     }
 }
