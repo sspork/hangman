@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hangman</title>
+    <style>
+        #word {
+            font-size: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hangman</h1>
+    <p>The greatest game known to man</p>
+    <span id="word">you have no java script enabled</span>
+  <input type="text"> 
+  <script>
+        document.getElementById("word").innerHTML = "test";
+        const words = ["jazz", "rythym", "scythe"];
+
+        const word = words[Math.floor(Math.random() * words.length)]
+        const parts = word.split("")
+        let failsCounter = 0
+        const maxFails = 20
+
+        const guessedLetters = []
+        /*
+        async function main() {
+            while (true) {
+                const wordGuessed = printCurrentState()
+                if (wordGuessed) {
+                    console.log(chalk.green(("yes, that it correct!"))
+                    break
+                }
+                let letter = await askForLetter()
+                letter = letter.toLowerCase()
+                if (parts.includes(letter)) {
+                    console.log(chalk.blue("yes :)"))
+                    guessedLetters.push(letter)
+                } else {
+                    failsCounter++
+                    if (failsCounter > maxFails) {
+                        console.log(chalk.red("you lost."))
+                        break
+                    }
+                    console.log(chalk.red("no :( you have " + (maxFails - failsCounter) + " fails left"))
+                }
+            }
+        }
+        function printCurrentState() {
+            let stuff = "";
+            let wordGuessed = true
+
+            for (let i = 0; i < word.length; i++) {
+                if (guessedLetters.includes(parts[i])) {
+                    stuff += parts[i]
+                } else {
+                    stuff += "_"
+                    wordGuessed = false
+                }
+                stuff += " "
+            }
+            console.log(stuff)
+            return wordGuessed
+        }
+
+        async function askForLetter() {
+            const answer = await Inquirer.prompt([{ message: "Guess a letter", type: "input", name: "letter" }])
+            return answer.letter
+
+        }
+        main()
+        */
+    </script>
+</body>
+
+</html>
