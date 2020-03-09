@@ -6,7 +6,7 @@ import * as figlet from "figlet";
 const word = words[Math.floor(Math.random() * words.length)]
 const parts = word.split("")
 let failsCounter = 0
-const maxFails = 3
+const maxFails = 20
 
 const guessedLetters = []
 async function main() {
